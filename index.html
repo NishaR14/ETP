@@ -603,7 +603,7 @@
 <body>
     <button class="logout-btn" onclick="logout()">Switch Account</button>
   <div class="container" id="app">
-    <!-- Sidebar -->
+    
     <nav class="sidebar" aria-label="Main navigation">
       <div class="logo" title="MoodLight">❤</div>
 
@@ -665,7 +665,7 @@
       <div class="nav-label">MoodLight</div>
     </nav>
 
-    <!-- Main content -->
+
     <main class="main" role="main">
       <!-- HOME -->
       <section id="home" class="module-section active" aria-labelledby="home-title">
@@ -788,7 +788,7 @@
         </div>
       </section>
 
-      <!-- CHAT -->
+    
       <section id="chat" class="module-section" aria-labelledby="chat-title">
         <div class="module-top" style="background: linear-gradient(90deg, #7c3aed, #ec4899);">
           <h2 id="chat-title">AI Support Chat</h2>
@@ -813,7 +813,7 @@
             </div>
           </div>
          
-          <!-- API Status Indicator -->
+         
           <div class="api-status">
             <div class="status-indicator" id="api-status"></div>
             <span id="status-text">Groq AI: Connected</span>
@@ -821,7 +821,7 @@
         </div>
       </section>
 
-      <!-- MOOD TRACKER -->
+      
       <section id="mood" class="module-section" aria-labelledby="mood-title">
         <div class="module-top" style="background: linear-gradient(90deg, #06b6d4, #14b8a6);">
           <h2 id="mood-title">Mood Tracker</h2>
@@ -860,7 +860,7 @@
         </div>
       </section>
 
-      <!-- BREATHING -->
+     
       <section id="breathing" class="module-section" aria-labelledby="breath-title">
         <div class="module-top" style="background: linear-gradient(90deg, #10b981, #06b6d4);">
           <h2 id="breath-title">Breathing Exercise</h2>
@@ -891,7 +891,7 @@
         </div>
       </section>
 
-      <!-- JOURNAL -->
+  
       <section id="journal" class="module-section" aria-labelledby="journal-title">
         <div class="module-top" style="background: linear-gradient(90deg, #fb7185, #f97316);">
           <h2 id="journal-title">Daily Journal</h2>
@@ -910,13 +910,13 @@
           <div>
             <h3 style="margin-bottom: 10px;">Recent Entries</h3>
             <div style="display: flex; flex-direction: column; gap: 10px;" id="journal-entries">
-              <!-- Journal entries will be generated here -->
+         
             </div>
           </div>
         </div>
       </section>
 
-      <!-- MEDITATION -->
+      
       <section id="meditation" class="module-section" aria-labelledby="med-title">
         <div class="module-top" style="background: linear-gradient(90deg, #7c3aed, #06b6d4);">
           <h2 id="med-title">Guided Meditations</h2>
@@ -954,20 +954,20 @@
           <div class="card" style="margin-bottom: 12px;">
             <h3>Join Group Sessions</h3>
             <div style="display: flex; flex-direction: column; gap: 10px;" id="group-sessions">
-              <!-- Group sessions will be generated here -->
+       
             </div>
           </div>
 
           <div class="card">
             <h3>Success Stories</h3>
             <div style="display: flex; flex-direction: column; gap: 12px;" id="success-stories">
-              <!-- Success stories will be generated here -->
+            
             </div>
           </div>
         </div>
       </section>
 
-      <!-- RESOURCES -->
+      
       <section id="resources" class="module-section" aria-labelledby="res-title">
         <div class="module-top" style="background: linear-gradient(90deg, #ef4444, #fb7185);">
           <h2 id="res-title">Mental Health Resources</h2>
@@ -998,11 +998,11 @@
     </main>
   </div>
 
-  <!-- Toast notification -->
+
   <div class="toast" id="toast"></div>
 
   <script>
-    // App state
+
     const appState = {
         currentMood: 'neutral',
         moodHistory: [],
@@ -1021,7 +1021,7 @@
         }
     };
 
-    // Groq AI Configuration (from your second code)
+
     const GROQ_API_KEY = "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";
     const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
     const GROQ_MODEL = "llama-3.1-8b-instant";
@@ -1042,17 +1042,17 @@ Key guidelines:
 
 Remember: You're here to support, listen, and help users feel understood and validated. Never provide medical advice.`;
 
-    // Navigation functionality
+   
     document.addEventListener('DOMContentLoaded', function() {
         initializeApp();
        
         const navButtons = document.querySelectorAll('.nav-btn');
         const moduleSections = document.querySelectorAll('.module-section');
        
-        // Set home as active by default
+   
         setActiveModule('home');
        
-        // Add click event listeners to navigation buttons
+      
         navButtons.forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1061,7 +1061,7 @@ Remember: You're here to support, listen, and help users feel understood and val
             });
         });
        
-        // Add click event listeners to home tiles
+    
         document.querySelectorAll('.tile').forEach(tile => {
             tile.addEventListener('click', function() {
                 const target = this.getAttribute('data-target');
@@ -1086,7 +1086,7 @@ Remember: You're here to support, listen, and help users feel understood and val
                 activeSection.classList.add('active');
             }
            
-            // Initialize module-specific functionality
+           
             if (moduleId === 'mood') {
                 initializeMoodTracker();
             } else if (moduleId === 'chat') {
@@ -1105,7 +1105,7 @@ Remember: You're here to support, listen, and help users feel understood and val
         }
     });
 
-    // Initialize app
+
     function initializeApp() {
         // Load data from localStorage if available
         const savedState = localStorage.getItem('moodlightState');
@@ -1113,12 +1113,12 @@ Remember: You're here to support, listen, and help users feel understood and val
             Object.assign(appState, JSON.parse(savedState));
         }
        
-        // Update stats display
+
         document.getElementById('days-tracked').textContent = appState.stats.daysTracked;
         document.getElementById('journal-count').textContent = appState.stats.journalCount;
         document.getElementById('meditation-count').textContent = appState.stats.meditationCount;
        
-        // Set up mood buttons
+   
         document.querySelectorAll('.mood-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const mood = this.getAttribute('data-mood');
@@ -1126,18 +1126,18 @@ Remember: You're here to support, listen, and help users feel understood and val
             });
         });
 
-        // Update API status indicator
+    
         updateAPIStatus();
     }
 
-    // Mood logging functionality
+   
     function logMood(mood) {
         appState.currentMood = mood;
        
-        // Update mood indicator in chat
+
         document.getElementById('chat-mood-indicator').textContent = `Current mood: ${mood}`;
        
-        // Add to mood history
+  
         const today = new Date().toISOString().split('T')[0];
         const existingEntryIndex = appState.moodHistory.findIndex(entry => entry.date === today);
        
@@ -1152,22 +1152,22 @@ Remember: You're here to support, listen, and help users feel understood and val
             document.getElementById('days-tracked').textContent = appState.stats.daysTracked;
         }
        
-        // Update UI
+
         document.querySelectorAll('.mood-btn').forEach(btn => {
             btn.classList.remove('selected');
         });
         document.querySelector(`[data-mood="${mood}"]`).classList.add('selected');
        
-        // Save state
+    
         saveState();
        
-        // Show confirmation
+      
         showToast(`Mood logged as ${mood}`);
     }
 
-    // Initialize mood tracker
+
     function initializeMoodTracker() {
-        // Generate mood chart
+     
         const moodChart = document.getElementById('mood-chart');
         moodChart.innerHTML = '';
        
@@ -1193,45 +1193,44 @@ Remember: You're here to support, listen, and help users feel understood and val
             moodChart.appendChild(dayElement);
         });
        
-        // Update stats
+      
         document.getElementById('happy-days').textContent = '43%';
         document.getElementById('improvement').textContent = '+15%';
     }
 
-    // Initialize chat with Groq AI integration
+   
     function initializeChat() {
         const chatMessages = document.getElementById('chat-messages');
         const chatInput = document.getElementById('chat-input');
         const sendBtn = document.getElementById('send-btn');
        
-        // Display existing chat history
+    
         chatMessages.innerHTML = '';
         appState.chatHistory.forEach(msg => {
             addMessageToChat(msg.sender, msg.text);
         });
        
-        // Send message functionality
+
         async function sendMessage() {
             const text = chatInput.value.trim();
             if (text) {
-                // Add user message
+          
                 addMessageToChat('user', text);
                 appState.chatHistory.push({ sender: 'user', text: text });
                
-                // Clear input
+            
                 chatInput.value = '';
                
-                // Show typing indicator
+        
                 showTypingIndicator();
                
                 try {
-                    // Get AI response from Groq
+                 
                     const response = await getGroqAIResponse(text);
                     removeTypingIndicator();
                     addMessageToChat('bot', response);
                     appState.chatHistory.push({ sender: 'bot', text: response });
-                   
-                    // Save state
+  
                     saveState();
                 } catch (error) {
                     removeTypingIndicator();
@@ -1242,13 +1241,12 @@ Remember: You're here to support, listen, and help users feel understood and val
                     addMessageToChat('bot', fallbackResponse);
                     appState.chatHistory.push({ sender: 'bot', text: fallbackResponse });
                    
-                    // Save state
+
                     saveState();
                 }
             }
         }
-       
-        // Event listeners
+
         sendBtn.addEventListener('click', sendMessage);
         chatInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
@@ -1257,10 +1255,10 @@ Remember: You're here to support, listen, and help users feel understood and val
         });
     }
 
-    // Get AI response from Groq API (from your second code)
+
     async function getGroqAIResponse(userMessage) {
         try {
-            // Prepare conversation history for context
+   
             const messages = [
                 { role: "system", content: SYSTEM_PROMPT },
                 ...appState.chatHistory.slice(-6).map(msg => ({
@@ -1303,11 +1301,10 @@ Remember: You're here to support, listen, and help users feel understood and val
         }
     }
 
-    // Fallback responses when API is unavailable
     function getFallbackResponse(currentMood, userMessage) {
         const message = userMessage.toLowerCase();
        
-        // Mood-specific responses
+  
         const moodResponses = {
             happy: [
                 "I'm so glad you're feeling happy! What's bringing you joy today?",
@@ -1331,7 +1328,7 @@ Remember: You're here to support, listen, and help users feel understood and val
             ]
         };
 
-        // Keyword-based responses
+     
         if (message.includes('sad') || message.includes('depressed') || message.includes('unhappy')) {
             return "I can hear the sadness in your words. It takes courage to share these feelings. Would you like to try a breathing exercise together, or just talk about what's weighing on your heart?";
         }
@@ -1352,12 +1349,12 @@ Remember: You're here to support, listen, and help users feel understood and val
             return "Loneliness can be really hard. I'm here with you right now, and you're not alone in this feeling.";
         }
 
-        // Default to mood-based response
+      
         const responses = moodResponses[currentMood] || moodResponses.neutral;
         return responses[Math.floor(Math.random() * responses.length)];
     }
 
-    // Show typing indicator
+
     function showTypingIndicator() {
         const chatMessages = document.getElementById('chat-messages');
         const typingDiv = document.createElement('div');
@@ -1372,7 +1369,7 @@ Remember: You're here to support, listen, and help users feel understood and val
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    // Remove typing indicator
+
     function removeTypingIndicator() {
         const typingIndicator = document.getElementById('typing-indicator');
         if (typingIndicator) {
@@ -1380,7 +1377,7 @@ Remember: You're here to support, listen, and help users feel understood and val
         }
     }
 
-    // Update API status
+
     function updateAPIStatus() {
         const statusElement = document.getElementById('api-status');
         const statusText = document.getElementById('status-text');
@@ -1394,7 +1391,7 @@ Remember: You're here to support, listen, and help users feel understood and val
         }
     }
 
-    // Add message to chat
+
     function addMessageToChat(sender, text) {
         const chatMessages = document.getElementById('chat-messages');
         const messageDiv = document.createElement('div');
@@ -1416,7 +1413,7 @@ Remember: You're here to support, listen, and help users feel understood and val
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    // Initialize breathing exercise
+
     function initializeBreathing() {
         const breathCircle = document.getElementById('breath-circle');
         const breathText = document.getElementById('breath-text');
@@ -1428,7 +1425,7 @@ Remember: You're here to support, listen, and help users feel understood and val
        
         breathBtn.addEventListener('click', function() {
             if (!isBreathing) {
-                // Start breathing exercise
+ 
                 isBreathing = true;
                 breathBtn.textContent = 'Stop Exercise';
                 instruction.textContent = 'Follow the circle: Inhale as it expands (blue), exhale as it contracts (orange)';
@@ -1449,14 +1446,14 @@ Remember: You're here to support, listen, and help users feel understood and val
                     step++;
                 }
                
-                // Start with first step
+       
                 nextStep();
                
-                // Set interval for cycling through steps
+         
                 breathInterval = setInterval(nextStep, 12000); // Total cycle time
                
             } else {
-                // Stop breathing exercise
+         
                 isBreathing = false;
                 breathBtn.textContent = 'Start Exercise';
                 instruction.textContent = 'Click Start to begin';
@@ -1468,16 +1465,16 @@ Remember: You're here to support, listen, and help users feel understood and val
         });
     }
 
-    // Initialize journal
+
     function initializeJournal() {
         const saveBtn = document.getElementById('save-entry');
         const journalEntry = document.getElementById('journal-entry');
         const journalEntries = document.getElementById('journal-entries');
        
-        // Display existing journal entries
+
         updateJournalEntries();
        
-        // Save entry functionality
+        
         saveBtn.addEventListener('click', function() {
             const text = journalEntry.value.trim();
             if (text) {
@@ -1492,16 +1489,16 @@ Remember: You're here to support, listen, and help users feel understood and val
                 appState.stats.journalCount++;
                 document.getElementById('journal-count').textContent = appState.stats.journalCount;
                
-                // Clear textarea
+            
                 journalEntry.value = '';
                
-                // Update UI
+           
                 updateJournalEntries();
                
                 // Save state
                 saveState();
                
-                // Show confirmation
+  
                 showToast('Journal entry saved');
             }
         });
@@ -1530,7 +1527,7 @@ Remember: You're here to support, listen, and help users feel understood and val
         }
     }
 
-    // Initialize meditation with anchor tags
+
     function initializeMeditation() {
         const meditationList = document.getElementById('meditation-list');
        
@@ -1589,12 +1586,12 @@ Remember: You're here to support, listen, and help users feel understood and val
         });
     }
 
-    // Initialize community
+
     function initializeCommunity() {
         const groupSessions = document.getElementById('group-sessions');
         const successStories = document.getElementById('success-stories');
        
-        // Group sessions
+  
         const sessions = [
             { title: 'Anxiety Support Group', time: 'Tomorrow 6 PM' },
             { title: 'Mindfulness Circle', time: 'Wed 7 PM' },
@@ -1621,7 +1618,7 @@ Remember: You're here to support, listen, and help users feel understood and val
             groupSessions.appendChild(sessionDiv);
         });
        
-        // Success stories
+    
         const stories = [
             { text: '"This platform helped me understand my emotions better..."', author: 'Anonymous User' },
             { text: '"I learned a breathing technique that calms me within minutes."', author: 'Community Member' }
@@ -1641,7 +1638,7 @@ Remember: You're here to support, listen, and help users feel understood and val
         });
     }
 
-    // Initialize resources with anchor tags
+    
     function initializeResources() {
         const resourceList = document.getElementById('resource-list');
        
@@ -1701,7 +1698,7 @@ Remember: You're here to support, listen, and help users feel understood and val
         });
     }
 
-    // Helper functions
+
     function formatDate(dateString) {
         const date = new Date(dateString);
         const today = new Date();
@@ -1732,18 +1729,18 @@ Remember: You're here to support, listen, and help users feel understood and val
     }
   </script>
     <script>
-    // Check if user is logged in
+
     if (localStorage.getItem('isLoggedIn') !== 'true') {
       window.location.href = 'login.html';
     }
    
-    // Show guest mode indicator if applicable
+ 
     if (localStorage.getItem('guestMode') === 'true') {
-      // You could add a subtle indicator that user is in guest mode
+ 
       console.log("Guest mode active");
     }
    
-    // Logout functionality
+
     function logout() {
       localStorage.removeItem('isLoggedIn');
       localStorage.removeItem('guestMode');
@@ -1751,4 +1748,5 @@ Remember: You're here to support, listen, and help users feel understood and val
     }
   </script>
 </body>
+
 </html>
