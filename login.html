@@ -254,40 +254,40 @@
       const credentialsForm = document.getElementById('credentials-form');
       const errorMessage = document.getElementById('error-message');
       
-      // Show login form when "Sign In" is clicked
+  
       signinBtn.addEventListener('click', function() {
         signinForm.classList.remove('active');
         loginForm.classList.add('active');
       });
       
-      // Continue without account
+      
       continueBtn.addEventListener('click', function() {
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('guestMode', 'true');
         window.location.href = 'index.html';
       });
       
-      // Go back to initial screen
+      
       backBtn.addEventListener('click', function() {
         loginForm.classList.remove('active');
         signinForm.classList.add('active');
         errorMessage.style.display = 'none';
       });
       
-      // Handle form submission
+      
       credentialsForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
         
-        // Check credentials
+        
         if (username === 'user' && password === 'moodlight') {
           // Store login status in localStorage
           localStorage.setItem('isLoggedIn', 'true');
           localStorage.setItem('guestMode', 'false');
           
-          // Redirect to the main application
+          
           window.location.href = 'index.html';
         } else {
           errorMessage.style.display = 'block';
@@ -297,3 +297,4 @@
   </script>
 </body>
 </html>
+
